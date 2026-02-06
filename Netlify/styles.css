@@ -1,0 +1,326 @@
+/* Bosch Rexroth Consulting Theme */
+:root {
+    /* Bosch Corporate Colors */
+    --bosch-red: #EA0016;
+    --bosch-black: #000000;
+    --bosch-dark-gray: #4E5D6C; /* Slate gray/text */
+    --bosch-light-gray: #BFC0C2;
+    --bosch-pale-gray: #EDF0F2; /* Backgrounds */
+    --bosch-white: #FFFFFF;
+    
+    /* Rexroth/Tech Accents (for charts/graphs) */
+    --rexroth-cyan: #00CCFF; 
+    --rexroth-blue: #005691;
+    --rexroth-green: #76C100;
+    --rexroth-purple: #A50064;
+
+    /* Theme Mappings */
+    --primary-color: var(--bosch-black);
+    --secondary-color: var(--bosch-red);
+    --text-color: var(--bosch-black);
+    --light-bg: var(--bosch-pale-gray);
+    --white: var(--bosch-white);
+    --border-color: var(--bosch-light-gray);
+    
+    /* Functional Colors */
+    --accent-blue: var(--rexroth-blue);
+    --accent-red: var(--bosch-red);
+    --accent-green: var(--rexroth-green);
+    --accent-yellow: #FFD400; /* Bosch Yellow if needed, or close to it */
+    --accent-purple: var(--rexroth-purple);
+}
+
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; /* Clean Sans Serif */
+    line-height: 1.6;
+    color: var(--text-color);
+    margin: 0;
+    padding: 0;
+    background-color: var(--light-bg);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Header & Nav */
+header {
+    background-color: var(--white);
+    border-bottom: none;
+    padding: 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+/* The Bosch Supergraphic Bar (Simulated) */
+header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, 
+        var(--bosch-red) 15%, 
+        var(--rexroth-purple) 15%, var(--rexroth-purple) 30%,
+        var(--rexroth-blue) 30%, var(--rexroth-blue) 55%,
+        var(--rexroth-cyan) 55%, var(--rexroth-cyan) 75%,
+        var(--rexroth-green) 75%
+    );
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--bosch-black);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo::before {
+    /* Simple Bosch-like Icon */
+    content: '';
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    background-image: url('data:image/svg+xml;utf8,<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg"><circle cx="50" cy="50" r="40" fill="none" stroke="%23EA0016" stroke-width="8"/><rect x="25" y="45" width="50" height="10" fill="%23EA0016"/><rect x="45" y="25" width="10" height="50" fill="%23EA0016"/></svg>'); 
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    text-decoration: none;
+    color: var(--bosch-dark-gray);
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding-bottom: 5px;
+    transition: color 0.3s, border-bottom 0.3s;
+    border-bottom: 2px solid transparent;
+}
+
+nav a:hover, nav a.active {
+    color: var(--bosch-black);
+    border-bottom: 2px solid var(--bosch-red);
+}
+
+/* Hero Section */
+.hero {
+    background: var(--white);
+    color: var(--bosch-black);
+    padding: 80px 0 60px;
+    text-align: left;
+    border-bottom: 1px solid var(--bosch-light-gray);
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    font-weight: 300; /* Bosch headlines often lighter */
+    color: var(--bosch-black);
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.5rem;
+    max-width: 900px;
+    margin: 0;
+    color: var(--bosch-dark-gray);
+    font-weight: 300;
+}
+
+/* Content Sections */
+.section {
+    background: var(--white);
+    padding: 60px;
+    margin: 40px 0;
+    border-radius: 0; /* Bosch design is square */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    border: 1px solid var(--bosch-light-gray);
+}
+
+h2 {
+    color: var(--bosch-black);
+    border-left: none;
+    padding-left: 0;
+    margin-top: 0;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 30px;
+    display: flex;
+    align-items: center;
+}
+
+h3 {
+    color: var(--bosch-black);
+    margin-top: 30px;
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+
+/* Specific styling elements */
+.highlight-box {
+    background-color: var(--bosch-white);
+    border: 1px solid var(--bosch-light-gray);
+    border-left: 5px solid var(--bosch-red);
+    padding: 25px 30px;
+    margin: 30px 0;
+}
+
+.highlight-box.green { background-color: #F6FAEB; border-left-color: var(--rexroth-green); }
+.highlight-box.yellow { background-color: #FEF9E6; border-left-color: var(--accent-yellow); }
+.highlight-box.blue { background-color: #E8F1F8; border-left-color: var(--rexroth-blue); }
+.highlight-box.purple { background-color: #F8E6EF; border-left-color: var(--rexroth-purple); }
+.highlight-box.red { background-color: #FCF0F0; border-left-color: var(--bosch-red); }
+
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 40px 0;
+}
+
+.stat-card {
+    background: var(--white);
+    border: 1px solid var(--bosch-light-gray);
+    padding: 30px;
+    text-align: left; /* Bosch often left-aligned */
+    border-radius: 0;
+    border-top: 4px solid var(--bosch-red);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.stat-number {
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--bosch-black);
+    display: block;
+    margin-bottom: 10px;
+    line-height: 1;
+}
+
+.stat-label {
+    font-size: 1rem;
+    color: var(--bosch-dark-gray);
+    font-weight: 600;
+}
+
+.stat-icon {
+    width: 40px;
+    height: 40px;
+    fill: var(--bosch-red);
+    margin-bottom: 20px;
+    display: block;
+}
+
+.section-icon {
+    width: 32px;
+    height: 32px;
+    fill: var(--bosch-red);
+    vertical-align: middle;
+    margin-right: 15px;
+}
+
+.highlight-icon {
+    float: right;
+    width: 64px;
+    height: 64px;
+    opacity: 0.1;
+    fill: var(--bosch-black);
+}
+
+.visual-comparison {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    margin: 40px 0;
+}
+
+.visual-step {
+    text-align: center;
+    flex: 1;
+    padding: 30px;
+    background: #fff;
+    border: 1px solid var(--bosch-light-gray);
+    border-radius: 0;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.arrow-icon {
+    width: 40px;
+    height: 40px;
+    fill: var(--bosch-dark-gray);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 30px 0;
+    border: 1px solid var(--bosch-light-gray);
+}
+
+th, td {
+    border-bottom: 1px solid var(--bosch-light-gray);
+    padding: 15px;
+    text-align: left;
+}
+
+th {
+    background-color: var(--bosch-pale-gray);
+    font-weight: 700;
+    color: var(--bosch-black);
+    text-transform: uppercase;
+    font-size: 0.85rem;
+    letter-spacing: 0.5px;
+}
+
+.btn {
+    display: inline-block;
+    background-color: var(--bosch-red);
+    color: var(--white);
+    padding: 12px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 0; /* Square buttons */
+    margin-top: 15px;
+    transition: background 0.3s;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+}
+
+.btn:hover {
+    background-color: #B90011;
+}
+
+footer {
+    text-align: center;
+    padding: 40px 0;
+    margin-top: 60px;
+    color: var(--bosch-dark-gray);
+    font-size: 0.9rem;
+    border-top: 5px solid var(--bosch-black);
+    background-color: var(--white);
+}
